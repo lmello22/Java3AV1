@@ -1,19 +1,37 @@
-
 package br.infnet.java3.lojadeveiculos;
 
 public class Loja {
-	private String endereco;
 	private String nome;
+	private String endereco;
 	private Carro[] estoqueDeCarros;
 	private Motocicleta[] estoqueDeMotocicletas;
 	
-	Loja() {
-		this.endereco = "";
-		this.nome = "";
-		this.estoqueDeCarros = new Carro[20];
-		this.estoqueDeMotocicletas = new Motocicleta[20];
+	public Loja() {
+
+	}
+	
+	public Loja(String nome, String endereco, int tam) { //tam eh o tamanho maximo dos vetores
+		this.setNome(nome);
+		this.setEndereco(endereco);
+		this.estoqueDeCarros = new Carro[tam];
+		this.estoqueDeMotocicletas = new Motocicleta[tam];
 	}
 
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
 
 	public void adicionaCarro(Carro carro, int posicao) {
 		this.estoqueDeCarros[posicao] = carro;
@@ -35,10 +53,12 @@ public class Loja {
 		return null;
 	}
 
-	public void listarEstoqueDeCarros() {
+	public void listaEstoqueDeCarros() {
+		int i = 0;
 		System.out.println("Estoque de carros");
 		System.out.println("******************************************");
-		for (int i = 0; i < this.estoqueDeCarros.length; i++) {
+		while ((i < this.estoqueDeCarros.length) && (this.estoqueDeCarros[i] != null)) {
+		//for (int i = 0; i < this.estoqueDeCarros.length; i++) {
 			System.out.println(this.estoqueDeCarros[i].getChassi());
 			System.out.println(this.estoqueDeCarros[i].getMontadora());
 			System.out.println(this.estoqueDeCarros[i].getModelo());
@@ -48,10 +68,11 @@ public class Loja {
 			System.out.println(this.estoqueDeCarros[i].getCambio());
 			System.out.println(this.estoqueDeCarros[i].getPreco());
 			System.out.println("-----------------------------------------");
+			i++;
 		}
 	}
 
-	public void listarEstoqueDeMotos() {
+	public void listaEstoqueDeMotos() {
 		System.out.println("Estoque de motos");
 		System.out.println("******************************************");
 		for (int i = 0; i < this.estoqueDeMotocicletas.length; i++) {
