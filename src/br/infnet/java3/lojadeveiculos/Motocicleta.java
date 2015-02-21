@@ -88,4 +88,17 @@ public class Motocicleta {
 	public void setPreco(float preco) {
 		this.preco = preco;
 	}
+
+	public void mostraMoto() {
+		System.out.println("---Dados da moto---");
+		System.out.println(this.getChassi());
+		System.out.println(this.getMontadora());
+		System.out.println(this.getModelo());
+		System.out.println(this.getTipo());
+		System.out.println(this.getCor());
+		System.out.println(this.getCilindrada());
+		System.out.println(this.getCapacidadeDoTanque());
+		System.out.println(this.getPreco());
+		System.out.println("-------------------");
+	}
 }

@@ -88,4 +88,17 @@ public class Carro {
 	public void setPreco(float preco) {
 		this.preco = preco;
 	}
+
+	public void mostraCarro() {
+		System.out.println("---Dados do carro---");
+		System.out.println(this.getChassi());
+		System.out.println(this.getMontadora());
+		System.out.println(this.getModelo());
+		System.out.println(this.getTipo());
+		System.out.println(this.getCor());
+		System.out.println(this.getMotorizacao());
+		System.out.println(this.getCambio());
+		System.out.println(this.getPreco());
+		System.out.println("--------------------");
+	}
 }

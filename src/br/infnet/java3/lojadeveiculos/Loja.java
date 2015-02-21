@@ -41,15 +41,35 @@ public class Loja {
 		this.estoqueDeMotocicletas[posicao] = moto;
 	}
 	
-	public Carro pesquisaCarro(String chassi) {
-		for (int i = 0; i < estoqueDeCarros.length; i++)
-			if (estoqueDeCarros[i].getChassi().equals(chassi)) return estoqueDeCarros[i];
+	public Carro pesquisaCarro(int atributo, String valor, int estoque) {
+		for (int i = 0; i < estoque; i++) {
+			switch (atributo) {
+				case 1: if (estoqueDeCarros[i].getChassi().equals(valor)) return estoqueDeCarros[i]; break;
+				case 2: if (estoqueDeCarros[i].getMontadora().equals(valor)) return estoqueDeCarros[i]; break;
+				case 3: if (estoqueDeCarros[i].getModelo().equals(valor)) return estoqueDeCarros[i]; break;
+				case 4: if (estoqueDeCarros[i].getTipo().equals(valor)) return estoqueDeCarros[i]; break;
+				case 5: if (estoqueDeCarros[i].getCor().equals(valor)) return estoqueDeCarros[i]; break;
+				case 6: if (estoqueDeCarros[i].getMotorizacao() == Float.parseFloat(valor)) return estoqueDeCarros[i]; break;
+				case 7: if (estoqueDeCarros[i].getCambio().equals(valor)) return estoqueDeCarros[i]; break;
+				case 8: if (estoqueDeCarros[i].getPreco() == Float.parseFloat(valor)) return estoqueDeCarros[i];
+			}
+		}
 		return null;
 	}
-
-	public Motocicleta pesquisaMoto(String chassi) {
-		for (int i = 0; i < estoqueDeMotocicletas.length; i++)
-			if (estoqueDeMotocicletas[i].getChassi().equals(chassi)) return estoqueDeMotocicletas[i];
+	
+	public Motocicleta pesquisaMoto(int atributo, String valor, int estoque) {
+		for (int i = 0; i < estoque; i++) {
+			switch (atributo) {
+				case 1: if (estoqueDeMotocicletas[i].getChassi().equals(valor)) return estoqueDeMotocicletas[i]; break;
+				case 2: if (estoqueDeMotocicletas[i].getMontadora().equals(valor)) return estoqueDeMotocicletas[i]; break;
+				case 3: if (estoqueDeMotocicletas[i].getModelo().equals(valor)) return estoqueDeMotocicletas[i]; break;
+				case 4: if (estoqueDeMotocicletas[i].getTipo().equals(valor)) return estoqueDeMotocicletas[i]; break;
+				case 5: if (estoqueDeMotocicletas[i].getCor().equals(valor)) return estoqueDeMotocicletas[i]; break;
+				case 6: if (estoqueDeMotocicletas[i].getCilindrada() == Integer.parseInt(valor)) return estoqueDeMotocicletas[i]; break;
+				case 7: if (estoqueDeMotocicletas[i].getCapacidadeDoTanque() == Integer.parseInt(valor)) return estoqueDeMotocicletas[i]; break;
+				case 8: if (estoqueDeMotocicletas[i].getPreco() == Float.parseFloat(valor)) return estoqueDeMotocicletas[i];
+			}
+		}
 		return null;
 	}
 
